@@ -1,0 +1,28 @@
+### Create a new user
+POST http://localhost:8000/auth/signup
+Content-Type: application/json
+
+{
+    "first_name":"Saad",
+    "last_name":"Butt",
+    "admin":true,
+    "email":"saad@mail.com",
+    "password":"123456"
+}
+
+### signin a user
+POST http://localhost:8000/auth/signin
+Content-Type: application/json
+
+{
+    "encrypted":"qiN99H3eGbl1GaWsS9UifzVra4rDPPpLFG5Q8td4otkecmLgCxRa5H3s/5zffsQ/Oa1HZAOpaMI5Lb2UXz7GBA=="
+}
+
+# {
+#     // "name":"usman",
+#     "email":"usman@mail.com",
+#     "password":"123456"
+# }
+
+### admin guard
+GET http://localhost:8000/user/1/comments
