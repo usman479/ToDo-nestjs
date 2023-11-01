@@ -16,13 +16,34 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('signin')
   async login(@Request() req) {
-    return await this.authService.login(req.user);
+    try {
+      const response = await this.authService.login(req.user);
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Post('signup')
   async registerUser(@Body() createUserDto: CreateUserDto) {
-    console.log(createUserDto)
-    return await this.userService.create(createUserDto);
+    try {
+      const response = await this.userService.create(createUserDto);
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @UseGuards(RefreshJwtGuard)

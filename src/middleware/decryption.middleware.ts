@@ -13,7 +13,6 @@ export class DecryptionMiddleware implements NestMiddleware {
   constructor(private readonly configService: ConfigService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
-    const privateKey = this.configService.get('AES_SECRET_KEY');
 
     // if methods are GET or DELETE then don't need to decrypt the body
     if (decryptionNotRequiredMethods.includes(req.method)) { 
@@ -24,9 +23,9 @@ export class DecryptionMiddleware implements NestMiddleware {
       }
 
       const decryptedBody = this.decryption(req.body.encrypted)
-
+      
+      
       req.body = JSON.parse(decryptedBody);
-
       next();
     }
   }

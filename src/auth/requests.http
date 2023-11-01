@@ -3,10 +3,10 @@ POST http://localhost:8000/auth/signup
 Content-Type: application/json
 
 {
-    "first_name":"Saad",
-    "last_name":"Butt",
-    "admin":true,
-    "email":"saad@mail.com",
+    "first_name":"Imran",
+    "last_name":"Hassan",
+    "admin":false,
+    "email":"imran@mail.com",
     "password":"123456"
 }
 

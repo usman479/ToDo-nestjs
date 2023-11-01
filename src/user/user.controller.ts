@@ -18,7 +18,6 @@ import { CreateSubTaskDto, CreateTaskDto } from './dto/create-task.dto';
 import { TaskService } from 'src/task/task.service';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import AvailableRoles from 'src/roles';
-import { EncryptInterceptor } from 'src/interceptor/encrypt.interceptor';
 
 @Controller('user')
 @UseGuards(JwtGuard, RolesGuard)
@@ -31,35 +30,92 @@ export class UserController {
   @Post('createtask')
   @Roles(AvailableRoles.User)
   async createTask(@Body() body: CreateTaskDto, @Request() req) {
-    let user = await this.userService.findOne(req.user.sub.userId);
-    return await this.taskService.createTask(body, user);
+    try {
+      let user = await this.userService.findOne(req.user.sub.userId);
+      const response = await this.taskService.createTask(body, user);
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Post('createsubtask')
   @Roles(AvailableRoles.User)
   async createSubTask(@Body() body: CreateSubTaskDto, @Request() req) {
-    let user = await this.userService.findOne(req.user.sub.userId);
-    return this.taskService.createSubTask(body, user);
+    try {
+      let user = await this.userService.findOne(req.user.sub.userId);
+      const response = await this.taskService.createSubTask(body, user);
+      console.log(response)
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Get('getall')
   @Roles(AvailableRoles.User)
   async readAll(@Request() req) {
-    return await this.taskService.getAllTasksByUserId(req.user.sub.userId);
+    try {
+      const response = await this.taskService.getAllTasksByUserId(req.user.sub.userId);
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Delete('delete/task/:id')
   @Roles(AvailableRoles.User)
   async deleteTask(@Param('id') taskId: string, @Request() req) {
-    let user = await this.userService.findOne(req.user.sub.userId);
-    return this.taskService.deleteTask(parseInt(taskId), user);
+    try {
+      let user = await this.userService.findOne(req.user.sub.userId);
+      const response = await this.taskService.deleteTask(parseInt(taskId), user);
+      
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Delete('delete/subtask/:id')
   @Roles(AvailableRoles.User)
   async deleteSubTask(@Param('id') subTaskId: string, @Request() req) {
-    let user = await this.userService.findOne(req.user.sub.userId);
-    return this.taskService.deleteSubTask(parseInt(subTaskId), user);
+    try {
+      let user = await this.userService.findOne(req.user.sub.userId);
+      const response = await this.taskService.deleteSubTask(parseInt(subTaskId), user);
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   @Patch('update/task/:id')
@@ -69,8 +125,20 @@ export class UserController {
     @Request() req,
     @Body() body: UpdateTaskDto,
   ) {
-    let user = await this.userService.findOne(req.user.sub.userId);
-    return this.taskService.updateTask(parseInt(taskId), user, body);
+    try {
+      let user = await this.userService.findOne(req.user.sub.userId);
+      const response = await this.taskService.updateTask(parseInt(taskId), user, body);
+      
+      return {
+        response,
+        status: true,
+      };
+    } catch (e) {
+      return {
+        response: e,
+        status: false,
+      };
+    }
   }
 
   // @Roles('user')

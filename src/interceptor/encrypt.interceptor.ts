@@ -6,13 +6,10 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import NodeRSA from 'encrypt-rsa';
-const AesEncryption = require('aes-encryption');
 const crypto = require('crypto');
 require('dotenv').config();
 
 export class EncryptInterceptor implements NestInterceptor {
-
   intercept(
     context: ExecutionContext,
     next: CallHandler,
@@ -21,9 +18,12 @@ export class EncryptInterceptor implements NestInterceptor {
     return next.handle().pipe(
       map((data: any) => {
         // Run something before the response is sent out
-        const encryptedBody = this.encryption(JSON.stringify(data));
+        const encryptedBody = this.encryption(JSON.stringify(data.response));
 
-        return encryptedBody;
+        return {
+          response: encryptedBody,
+          status: data.status,
+        };
       }),
     );
   }
@@ -38,7 +38,6 @@ export class EncryptInterceptor implements NestInterceptor {
     let encryptedData = cipher.update(dataToEncrypt, 'utf8', 'base64');
     encryptedData += cipher.final('base64');
 
-    return encryptedData
+    return encryptedData;
   }
-
 }

@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { Injectable, UnauthorizedException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SubTask } from 'src/entities/sub-task.entity';
 import { Task } from 'src/entities/task.entity';
@@ -48,7 +48,9 @@ export class TaskService {
       .andWhere('task.task_id = :taskId', { taskId })
       .getOne();
 
-    if (isAllowed.subTasks.length > 0) {
+    if(!isAllowed){
+      throw new NotFoundException(`Task with the id ${taskId} not found`);
+    } else if (isAllowed.subTasks.length > 0) {
       throw new UnauthorizedException(
         'delete the subtasks before deleting task',
       );
@@ -60,7 +62,6 @@ export class TaskService {
       .where('task_id = :taskId', { taskId })
       .andWhere('task.user_id = :user', { user: user.user_id })
       .execute();
-
     return task;
   }
 
@@ -73,7 +74,9 @@ export class TaskService {
       .where('subtask.subtask_id = :subTaskId', { subTaskId })
       .getRawOne();
 
-    if (isAllowed.user_id !== user.user_id) {
+    if(!isAllowed){
+      throw new NotFoundException(`Sub task with the id ${subTaskId} not found`);
+    } else if (isAllowed.user_id !== user.user_id) {
       throw new UnauthorizedException('Not allowed');
     }
 
