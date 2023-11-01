@@ -13,7 +13,6 @@ export class DecryptionMiddleware implements NestMiddleware {
   constructor(private readonly configService: ConfigService) {}
 
   async use(req: Request, res: Response, next: NextFunction) {
-
     // if methods are GET or DELETE then don't need to decrypt the body
     if (decryptionNotRequiredMethods.includes(req.method)) { 
       next();

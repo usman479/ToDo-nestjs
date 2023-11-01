@@ -22,25 +22,69 @@ export class AdminController {
       @Get('getuser')
       @Roles(AvailableRoles.Admin)
       async getUser(){
-        return this.userService.getAllUsers();
+        try {
+          const response = await this.userService.getAllUsers();
+          return {
+            response,
+            status: true,
+          };
+        } catch (e) {
+          return {
+            response: e,
+            status: false,
+          };
+        }
       }
 
       @Get('getuser/:id')
       @Roles(AvailableRoles.Admin)
       async getUserById(@Param('id') id:string){
-        return this.userService.findOne(parseInt(id));
+        try {
+          const response = await this.userService.findOne(parseInt(id));
+          return {
+            response,
+            status: true,
+          };
+        } catch (e) {
+          return {
+            response: e,
+            status: false,
+          };
+        }
       }
       
       @Delete('deletetask/:id')
       @Roles(AvailableRoles.Admin)
       async deleteTask(@Param('id') id:string) {
-          return this.taskService.deleteTaskAdmin(parseInt(id))
+        try {
+          const response = await this.taskService.deleteTaskAdmin(parseInt(id))
+          return {
+            response,
+            status: true,
+          };
+        } catch (e) {
+          return {
+            response: e,
+            status: false,
+          };
+        }
       }
 
       @Delete('deletesubtask/:id')
       @Roles(AvailableRoles.Admin)
       async deleteSubTask(@Param('id') id:string) {
-          return this.taskService.deleteSubTaskAdmin(parseInt(id))
+        try {
+          const response = await this.taskService.deleteSubTaskAdmin(parseInt(id))
+          return {
+            response,
+            status: true,
+          };
+        } catch (e) {
+          return {
+            response: e,
+            status: false,
+          };
+        }
       }
       
 }

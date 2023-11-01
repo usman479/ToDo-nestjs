@@ -6,10 +6,15 @@ import { Task } from 'src/entities/task.entity';
 import { SubTask } from 'src/entities/sub-task.entity';
 import { UserService } from 'src/user/user.service';
 import { TaskService } from 'src/task/task.service';
+import { APP_INTERCEPTOR } from '@nestjs/core';
+import { EncryptInterceptor } from 'src/interceptor/encrypt.interceptor';
 
 @Module({
   controllers: [AdminController],
-  imports:[TypeOrmModule.forFeature([User,Task,SubTask])],
-  providers:[UserService,TaskService]
+  imports: [TypeOrmModule.forFeature([User, Task, SubTask])],
+  providers: [
+    UserService,
+    TaskService,
+  ],
 })
 export class AdminModule {}

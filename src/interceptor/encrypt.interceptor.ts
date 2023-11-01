@@ -17,6 +17,7 @@ export class EncryptInterceptor implements NestInterceptor {
     // Run something before a request is handled by the request handler
     return next.handle().pipe(
       map((data: any) => {
+        console.log('interceptor: ',data)
         // Run something before the response is sent out
         const encryptedBody = this.encryption(JSON.stringify(data.response));
 

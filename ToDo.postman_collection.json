@@ -1,0 +1,658 @@
+{
+	"info": {
+		"_postman_id": "1fd6ef21-e411-4359-b751-69dfe991f770",
+		"name": "ToDo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30583056"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "get a user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/getuser/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"getuser",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/getuser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"getuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"first_name\":\"Imran\",\r\n//     \"last_name\":\"Hassan\",\r\n//     \"admin\":false,\r\n//     \"email\":\"imran@mail.com\",\r\n//     \"password\":\"123456\"\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\": \"ai7nO+8mwJSJEgQEbuZ/DR2t01jE4QNyOii9BGeysRA7Pe/PVxz8jnJNIZwuVs3o/JCba+iUJv1yoWoILLe3UV59PcDIq9E4O5HabijBqYgEvOJPomVE9LK4pq45lTifJKE0Tx+bn8n41KbRBfjC8PCmcevH1Z+WI0W/oXptuAQ=\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//   \"email\":\"imran@mail.com\",\r\n//   \"password\":\"123456\"\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\": \"beMRkL8dv0r5bfNCaH2n1jVra4rDPPpLFG5Q8td4otkecmLgCxRa5H3s/5zffsQ/Oa1HZAOpaMI5Lb2UXz7GBA==\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/deletetask/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"deletetask",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete sub task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/deletesubtask/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"deletesubtask",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"text\":\"check the emails\"\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\": \"Rt4To/r8iL3Tg5JqMlvGlr1FkFvJpCixIrtK27JEOZ0=\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/createtask",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"createtask"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create sub task",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"text\":\"check the email of the boss\",\r\n//      \"task_id\":16\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\":\"Rt4To/r8iL3Tg5JqMlvGltCmOVR5TsADbjUHfynK+mUifNWipkrJi5HsECSqHa47cT3sJGMGpAYulxoHju1CQg==\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete my task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/delete/task/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"delete",
+								"task",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete my sub task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/delete/subtask/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"delete",
+								"subtask",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update my task by id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImltcmFuQG1haWwuY29tIiwic3ViIjp7ImZpcnN0TmFtZSI6IkltcmFuIiwibGFzdE5hbWUiOiJIYXNzYW4iLCJhZG1pbiI6ZmFsc2UsInVzZXJJZCI6NCwiY3JlYXRlQXQiOiIyMDIzLTEwLTMxVDE5OjQ4OjUyLjAwMFoifSwiaWF0IjoxNjk4ODMzOTQzLCJleHAiOjE2OTk0Mzg3NDN9.ssQeWnvgf2Qhoooc0BW5mPGxhEoVV-AcMLdA68DWlbA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"completed\":true\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\":\"cZ5BhQY1jsQ08P9+QX26f13G9XXotal4KozlRoPNs4Q=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/update/task/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"update",
+								"task",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "get a user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/getuser/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"getuser",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/getuser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"getuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"first_name\":\"muhammad\",\r\n//     \"last_name\":\"usman\",\r\n//     \"admin\":true,\r\n//     \"email\":\"usman@email.com\",\r\n//     \"password\":\"123456\"\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\": \"ai7nO+8mwJSJEgQEbuZ/DaAcilY3Qiwv1fMDgX5FkfEY39BQFb4Ujht2c1oTWwVQPd1L/raLkt/YhrtZ4E6OYVqmw3/ZocGB7NhvZ02Nf8lmuu10FreYt9qiJO4SKJ2BMT3Q8Kyx4fUEW0dZGcjcBIIofL0J0CPdVTgf2DD9tGY=\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//   \"email\":\"usman@email.com\",\r\n//   \"password\":\"123456\"\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\": \"qiN99H3eGbl1GaWsS9Uif9Kesvv6TFCZs1YHE4WDWEgkoTRPH5ufyfjUptEF+MLw8KZx68fVn5YjRb+hem24BA==\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/deletetask/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"deletetask",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete sub task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/admin/deletesubtask/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"admin",
+								"deletesubtask",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tasks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/getall",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"getall"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete my task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/delete/task/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"delete",
+								"task",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete my sub task by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/user/delete/subtask/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"delete",
+								"subtask",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update my task by id",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzbWFuQGVtYWlsLmNvbSIsInN1YiI6eyJmaXJzdE5hbWUiOiJtdWhhbW1hZCIsImxhc3ROYW1lIjoidXNtYW4iLCJhZG1pbiI6dHJ1ZSwidXNlcklkIjo1LCJjcmVhdGVBdCI6IjIwMjMtMTEtMDFUMTY6Mjg6NDguMDAwWiJ9LCJpYXQiOjE2OTg4NTYxOTAsImV4cCI6MTY5OTQ2MDk5MH0.lgwZDWdUn_eCTU6Nja2OkWwNtz5rFvxLb-WHL-6BfMI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// ACTUAL DATA\r\n// {\r\n//     \"completed\":true\r\n// }\r\n// ENCRYPTED FORM\r\n{\r\n    \"encrypted\":\"cZ5BhQY1jsQ08P9+QX26f13G9XXotal4KozlRoPNs4Q=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/user/update/task/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"user",
+								"update",
+								"task",
+								"16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
